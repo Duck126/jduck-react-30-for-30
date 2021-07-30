@@ -1,0 +1,123 @@
+html {
+  font-size: 10px;
+  overflow-x: hidden;
+  background-size: cover;
+}
+
+body,html {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.homeContainer {
+  width: 100vw;
+}
+
+.navContainer {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: #4444;
+  width: 100vw;
+  justify-content: center;
+  align-content: center;
+}
+
+.navbar {
+  background-color: #4444;
+  flex-basis: 100%;
+  display: inline-flex;
+  /* visibility: hidden; */
+  /* opacity: 0; */
+  transition: height 1500ms, opacity .5s linear;
+  overflow-y: hidden;
+  height: 0px;
+}
+
+.navbarActive {
+  background-color: whitesmoke;
+  flex-basis: 100%;
+  display: inline-flex;
+  height: fit-content;
+  transition: height 1500ms, opacity .5s linear;
+}
+
+.navList {
+  display: none;
+  user-select: none;
+}
+
+.navListActive {
+  visibility: visible;
+  opacity: 1;
+  transition: visibility 1000ms, opacity .5s linear;
+  list-style: none;
+  display: flex;
+  flex-basis: 100%;
+  flex-wrap: wrap;
+  align-self: center;
+  justify-self: center;
+}
+
+.dropdownItem {
+  height: 4vh;
+  flex-basis: 100%;
+  min-width: 500px;
+  color:whitesmoke;
+  justify-self: center;
+  align-self: center;
+  text-align: center;
+}
+
+.subHeading {
+  background-color: black;
+  margin: 0;
+  height: 10px;
+  text-align: center;
+  justify-items: center;
+  padding-top: 15px;
+  padding-bottom: 20px;
+}
+
+.navItem {
+  margin: .5em;
+  padding: .5em;
+  width: fit-content;
+  background-color: #4444;
+  text-decoration: none;
+  color: whitesmoke;
+  border-radius: 5px;
+}
+
+.navItem:hover {
+  transform: scale(1.1);
+  background-color: whitesmoke;
+  color: #4444;
+}
+
+.navItemInactive {
+  display: none;
+  user-select: none;
+}
+
+.navLink {
+  text-decoration: none;
+  color: black;
+}
+
+.mainHeading {
+  background-color: #4444;
+  margin: 0;
+  padding: 2rem;
+  font-size: large;
+  font-weight: bolder;
+}
+
+.menuBar {
+  height: auto;
+  width: 100vw;
+}
+
+

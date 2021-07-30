@@ -1,0 +1,27 @@
+.refcontainer {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100vw;
+}
+
+.methodContainer {
+    flex-basis: 45%;
+    border: 1px solid black;
+    text-align: center;
+    margin: 5px;
+}
+
+.heading {
+    flex-basis: 100%;
+    justify-self: center;
+    align-self: center;
+    text-align: center;
+    text-decoration: underline;
+}
+
+.methodHeading {
+    font-size: 15px;
+    font-weight: bold;
+    text-decoration: underline;
+}

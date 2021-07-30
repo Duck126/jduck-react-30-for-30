@@ -1,0 +1,20 @@
+
+  .eventItem {
+      width: stretch;
+      height: 100%;
+      display: flex;
+      padding: 100px;
+      text-align: center;
+  }
+
+  .one {
+    background: thistle;
+  }
+
+  .two {
+    background: mistyrose;
+  }
+
+  .three {
+    background: coral;
+  }
