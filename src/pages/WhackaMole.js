@@ -1,10 +1,11 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import "../styles/WhackaMole.css";
 
 
 const WhackaMole = () => {
     const holes = document.querySelectorAll('.hole');
-    const scoreBoard = document.querySelector('.score');
+    // const scoreBoard = document.querySelector('.score');
+    const scoreBoard = useRef(0);
     const moles = document.querySelectorAll('.mole');
     let lastHole;
     let timeUp = false;
@@ -43,7 +44,7 @@ const WhackaMole = () => {
     }
 
     function startGame() {
-        scoreBoard.textContent = 0;
+        scoreBoard.current.textContent = 0;
         timeUp = false;
         score = 0;
         peep();
@@ -54,12 +55,12 @@ const WhackaMole = () => {
         if (!e.isTrusted) return; // cheater!
         score++;
         this.parentNode.classList.remove('up');
-        scoreBoard.textContent = score;
+        scoreBoard.current.textContent = score;
     }
 
     return (
         <div className="moleContainer">
-            <h1 className="moleHeader">Whack-a-mole! <span className="score">0</span></h1>
+            <h1 className="moleHeader">Whack-a-mole! <span className="score" ref={scoreBoard}>0</span></h1>
             <button className="gameButton" onClick={startGame}>Start!</button>
 
             <div className="game">
