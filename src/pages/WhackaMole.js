@@ -3,21 +3,22 @@ import "../styles/WhackaMole.css";
 
 
 const WhackaMole = () => {
-    // const scoreBoard = document.querySelector('.score');
     const holes = useRef(null);
     const holeLength = useRef(null);
     const scoreBoard = useRef(0);
-    const moles = document.querySelectorAll('.mole');
     let lastHole;
     let timeUp = false;
     let score = 0;
 
     useEffect(() => {
+        const moles = document.querySelectorAll('.mole');
+
         moles.forEach(mole => mole.addEventListener('click', e => bonk(e)));
         holes.current = document.querySelectorAll('.hole');
         return () => {
             moles.forEach(mole => mole.removeEventListener('click', e => bonk(e)));
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     useEffect(() => {
@@ -30,13 +31,8 @@ const WhackaMole = () => {
 
     function randomHole(holes) {
         const length = holeLength.current;
-        console.log(holeLength.current);
-        // console.log(holes);
         const idx = Math.floor(Math.random() * length);
-        console.log(idx);
         const hole = holes[idx];
-        console.log(hole);
-        // console.log(lastHole);
         if (hole === lastHole) {
             console.log('Ah nah thats the same one bud');
             return randomHole(holes);
@@ -48,7 +44,7 @@ const WhackaMole = () => {
     function peep() {
         const time = randomTime(400, 1400);
         const hole = randomHole(holes.current);
-        console.log(hole);
+        // console.log(hole);
         hole.classList.add('up');
         setTimeout(() => {
             hole.classList.remove('up');
