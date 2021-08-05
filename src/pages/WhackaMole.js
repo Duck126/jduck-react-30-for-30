@@ -3,8 +3,9 @@ import "../styles/WhackaMole.css";
 
 
 const WhackaMole = () => {
-    const holes = document.querySelectorAll('.hole');
     // const scoreBoard = document.querySelector('.score');
+    const holes = useRef(null);
+    const holeLength = useRef(null);
     const scoreBoard = useRef(0);
     const moles = document.querySelectorAll('.mole');
     let lastHole;
@@ -12,19 +13,30 @@ const WhackaMole = () => {
     let score = 0;
 
     useEffect(() => {
-        moles.forEach(mole => mole.addEventListener('click', bonk));
+        moles.forEach(mole => mole.addEventListener('click', e => bonk(e)));
+        holes.current = document.querySelectorAll('.hole');
         return () => {
-            moles.forEach(mole => mole.removeEventListener('click', bonk));
+            moles.forEach(mole => mole.removeEventListener('click', e => bonk(e)));
         }
-    })
+    }, [])
+
+    useEffect(() => {
+        holeLength.current = holes.current.length;
+    }, []);
 
     function randomTime(min, max) {
-        return Math.round(Math.random() * (max - min) + min);
+        return Math.round(Math.random() * (max - min));
     }
 
     function randomHole(holes) {
-        const idx = Math.floor(Math.random() * holes.length);
+        const length = holeLength.current;
+        console.log(holeLength.current);
+        // console.log(holes);
+        const idx = Math.floor(Math.random() * length);
+        console.log(idx);
         const hole = holes[idx];
+        console.log(hole);
+        // console.log(lastHole);
         if (hole === lastHole) {
             console.log('Ah nah thats the same one bud');
             return randomHole(holes);
@@ -34,8 +46,9 @@ const WhackaMole = () => {
     }
 
     function peep() {
-        const time = randomTime(200, 1000);
-        const hole = randomHole(holes);
+        const time = randomTime(400, 1400);
+        const hole = randomHole(holes.current);
+        console.log(hole);
         hole.classList.add('up');
         setTimeout(() => {
             hole.classList.remove('up');
@@ -54,7 +67,8 @@ const WhackaMole = () => {
     function bonk(e) {
         if (!e.isTrusted) return; // cheater!
         score++;
-        this.parentNode.classList.remove('up');
+
+        e.target.parentNode.classList.remove('up');
         scoreBoard.current.textContent = score;
     }
 

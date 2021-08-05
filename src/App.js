@@ -32,6 +32,7 @@ import ClickDrag from "./pages/ClickDrag";
 import VideoSpeed from "./pages/VideoSpeed";
 import CountDown from "./pages/CountDown";
 import WhackaMole from "./pages/WhackaMole";
+import Home from "./pages/Home";
 
 function App() {
 
@@ -43,9 +44,12 @@ function App() {
     <div className="homeContainer">
       <h2 className='mainHeading'>React JS 30 for 30</h2>
       <Router>
-        <span className='dropdownItem' onClick={showNav}><h3 className='subHeading'>Projects {active ? '⟰' : '⟱' }</h3></span>
+        <span className='dropdownItem' onClick={showNav}><h3 className='subHeading'>Projects {active ? '⟰' : '⟱'}</h3></span>
         <nav className={active ? `navbarActive` : `navbar`}>
           <ul className={active ? `navListActive` : `navList`}>
+            <li className={active ? `navItem` : `navItemInactive`}>
+              <Link className='navLink' to="/">Home</Link>
+            </li>
             <li className={active ? `navItem` : `navItemInactive`}>
               <Link className='navLink' to="/DrumKit">Drum Kit</Link>
             </li>
@@ -144,6 +148,9 @@ function App() {
         {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
         <Switch>
+          <Route path="/" exact>
+            <Home />
+          </Route>
           <Route path="/DrumKit">
             <DrumKit />
           </Route>

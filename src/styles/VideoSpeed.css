@@ -19,7 +19,7 @@
   box-shadow: 0 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
-.speed {
+.speedVal {
   background: #efefef;
   display: flex;
   flex: 1;

@@ -6,10 +6,7 @@ const VideoSpeed = () => {
     const speed = useRef(null);
     const bar = useRef(null);
     const video = useRef(null);
-    // const speed = document.querySelector('.speed');
-    // const bar = speed.querySelector('.speed-bar');
-    // const video = document.querySelector('.flex');
-
+   
     useEffect(() => {
         speed.current.addEventListener('mousemove', handleMove);
 
@@ -27,12 +24,11 @@ const VideoSpeed = () => {
         video.current.playbackRate = playbackRate;
     }
 
-
     return (
         <div className="speedContainer">
             <div className="speedWrapper">
-                <video className="flex speedVideo" ref={video} width="765" height="430" src="http://clips.vorwaerts-gmbh.de/VfE_html5.mp4" loop controls></video>
-                <div className="speed" ref={speed}>
+                <video className="flex speedVideo" ref={video} width="765" height="430" src="/videospeed.mp4" loop controls></video>
+                <div className="speedVal" ref={speed}>
                     <div className="speed-bar" ref={bar}>1×</div>
                 </div>
             </div>

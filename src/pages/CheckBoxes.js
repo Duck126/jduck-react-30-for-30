@@ -1,94 +1,96 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import '../styles/CheckBoxes.css';
 
 const CheckBoxes = () => {
 
-    const allboxes = document.querySelectorAll('.inbox input[type="checkbox"]');
-
-    const [boxes, checkTheBoxes] = useState(() => [
+    const options = [
         {
             id: "0",
             checked: false,
-            text: "This is an inbox layout",
+            label: "This is an inbox layout",
         },
         {
             id: "1",
             checked: false,
-            text: "Check on item",
+            label: "Check on item",
         },
         {
             id: "2",
             checked: false,
-            text: "Hold down your Shift key",
+            label: "Hold down your Shift key",
         },
         {
             id: "3",
             checked: false,
-            text: "Check a lower Item",
+            label: "Check a lower Item",
         },
         {
             id: "4",
             checked: false,
-            text: "Everthing in between should also be set to checked",
+            label: "Everthing in between should also be set to checked",
         },
         {
             id: "5",
             checked: false,
-            text: "Try to do it without any libraries",
+            label: "Try to do it without any libraries",
         },
         {
             id: "6",
             checked: false,
-            text: "Just React",
+            label: "Just React",
         },
         {
             id: "7",
             checked: false,
-            text: "Good Luck!",
+            label: "Good Luck!",
         },
         {
             id: "8",
             checked: false,
-            text: "Don't forget to Tweet about it!",
+            label: "Don't forget to Tweet about it!",
         },
-    ])
+    ];
 
+    const [data, setData] = useState(options);
+    const [previousCheck, setChecked] = useState(null);
 
-    useEffect(() => {
-        allboxes.forEach(checkbox => checkbox.addEventListener('click', handleChange));
-    })
+    const toggle = (index, e) => {
 
-    const checkIndex = [];    
+        const newData = [...data];
 
-    const handleChange = (e) => {
-        
-        if(e.shiftKey && e.target.checked) {
-            console.log(e.target.id);
-            let thisBox = e.target.id;
-            checkIndex.push(...thisBox);
-            const tempValues = checkIndex.slice(-2)
-            console.log(tempValues);
-            boxes.map((item, index) => {
-                if(item.id >= tempValues[0] && item.id <= tempValues[1]) {
-                    checkTheBoxes(prevState => {
-                       return console.log(prevState);
+        if (e.nativeEvent.shiftKey && !previousCheck) {
+            console.log("This ran");
+            setChecked(e.target.id);
+        } else if (e.nativeEvent.shiftKey && previousCheck) {
+            newData.forEach((item, index) => {
+                if (item.id >= previousCheck && item.id <= e.target.id) {
+                    newData.splice(index, 1, {
+                        id: data[index].id,
+                        checked: !data[index].checked,
+                        label: data[index].label,
                     })
                 }
-                return boxes;
             })
-            console.log(boxes);
+            setChecked(null);
+        } else {
+            newData.splice(index, 1, {
+                id: data[index].id,
+                checked: !data[index].checked,
+                label: data[index].label,
+            });
         }
-    }
+        setData(newData);
+    };
+
+
     return (
-        
         <>
-            {console.log(boxes)}
             <div className="inbox">
-                {boxes.map((item, index) => {
+                {data.map((item, index) => {
                     return (
                         <div className="itemBody" key={index}>
-                            <input id={item.id} onChange={(e) => handleChange(e)} checked={item.checked} type="checkbox" className="box"></input>
-                            <p className="itemText">{item.text}</p>
+                            <input id={item.id} onChange={(e) => toggle(item.id, e)} checked={item.checked} type="checkbox" className="box"></input>
+                            <p className="itemText">{item.label}</p>
                         </div>
                     )
                 })}

@@ -42,8 +42,8 @@
   }
   
   .game {
-    width: 600px;
-    height: 400px;
+    width: 80%;
+    height: 50vh;
     display: flex;
     flex-wrap: wrap;
     margin: 0 auto;
@@ -71,7 +71,7 @@
   
   .mole {
     background: url('../images/mole.svg') bottom center no-repeat;
-    background-size: 60%;
+    background-size: fit-content;
     position: absolute;
     top: 100%;
     width: 100%;
@@ -84,8 +84,13 @@
   }
 
   .gameButton {
-      max-height: 40px;
+      max-height: 70px;
+      max-width: 100px;
       justify-self: center;
       align-self: center;
-      margin: 20px;
+      flex-basis: 80%;
+      margin-left: 10%;
+      margin-top: 10%;
+      background-color: black;
+      color: whitesmoke;
   }
