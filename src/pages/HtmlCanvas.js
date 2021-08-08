@@ -1,5 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useRef } from "react";
+import "../styles/Canvas.css"
 
 const HtmlCanvas = () => {
 
@@ -62,6 +63,7 @@ const HtmlCanvas = () => {
 
     return (
         <>
+            <h1 className="canvasNote">Draw with Mouse!</h1>
             <canvas id="draw" ref={canvasRef}></canvas>
         </>
     )

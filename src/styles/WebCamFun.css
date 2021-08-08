@@ -11,6 +11,27 @@
   border-radius: 2px;
 }
 
+.controls {
+  width: 70%;
+  display: inline-flex;
+  flex-wrap: wrap;
+  padding: 5%;
+}
+
+.controlRange {
+  margin: 10px;
+  width: 100%;
+  flex-basis: 100%;
+}
+
+.takePhoto {
+  flex-basis: 100%;
+  max-width: 200px;
+  max-height: 70px;
+  border-radius: 15px;
+  margin: 5%;
+}
+
 /*clearfix*/
 .photobooth:after {
   content: "";
@@ -19,13 +40,13 @@
 }
 
 .photo {
-  width: 100%;
-  float: left;
+  width: 80%;
+  margin-left: 10%;
 }
 
 .camPlayer {
   position: fixed;
-  bottom: 20%;
+  top: 15%;
   right: 20px;
   width: 200px;
 }

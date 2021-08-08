@@ -1,0 +1,43 @@
+.homeContainer {
+    width: 100vw;
+    height: 100vh;
+}
+
+.homeTitle {
+    font-weight: bold;
+    font-size: 2em;
+    margin: 2.5%;
+    text-decoration: underline;
+}
+
+.homepage {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: flex-start;
+    text-align: center;
+    background-color: #CDCDCD;
+    height: 100vh;
+    padding: 5%;
+}
+
+.description {
+    flex-basis: 100%;
+    font-size: large;
+    background-color: black;
+    color: whitesmoke;
+    padding: 2.5%;
+    border-radius: 15px;
+    border-top: solid 3px whitesmoke;
+    border-bottom: solid 3px whitesmoke;
+
+}
+
+.homelink {
+    color: blue;
+}
+
+.noteSection {
+    width: 75%;
+    margin-left: 12.5%;
+}

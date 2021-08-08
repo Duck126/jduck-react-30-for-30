@@ -99,7 +99,7 @@
 
 /* unholy css to style input type="range" */
 
-input[type="range"] {
+.player__slider {
   -webkit-appearance: none;
   background: transparent;
   width: 100%;

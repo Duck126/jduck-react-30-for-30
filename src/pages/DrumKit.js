@@ -17,13 +17,11 @@ const DrumKit = () => {
         const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
 
         if (!audio) return;
-        //key.classNameList.add('playing');
         const playPromise = audio.play();
         console.log(playPromise);
         audio.currentTime = 0;
         if (playPromise !== undefined) {
             playPromise.then(res => {
-                console.log('played');
             }).then(res => {
                 return res;
             })

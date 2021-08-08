@@ -63,9 +63,6 @@ const WebCamFun = () => {
         const ctx = canvas.current?.getContext('2d');
         canvas.current.width = width;
         canvas.current.height = height;
-        console.log(canvas.current);
-
-
         setInterval(() => {
             if (!video.current) {
                 return;
@@ -177,30 +174,30 @@ const WebCamFun = () => {
             //console.log(e.target.value);
             //video.current.volume = e.target.value;
         }
-        //console.log({volumeValue, playbackValue});
+        
     }
 
     return (
         <div className="camContainer">
             <div className="photobooth">
                 <div className="controls">
-                    <button onClick={takePhoto}>Take Photo</button>
                     <div className="rgb">
                         <label htmlFor="rmin">Red Min:</label>
-                        <input onChange={e => handleRangeUpdate(e)} type="range" min='0' max='255' name="rmin" ref={redMin}></input>
+                        <input className="controlRange" onChange={e => handleRangeUpdate(e)} type="range" min='0' max='255' name="rmin" ref={redMin}></input>
                         <label htmlFor="rmax">Red Max:</label>
-                        <input onChange={e => handleRangeUpdate(e)} type="range" min='0' max='255' name="rmax" ref={redMax}></input>
+                        <input className="controlRange" onChange={e => handleRangeUpdate(e)} type="range" min='0' max='255' name="rmax" ref={redMax}></input>
                         <br></br>
                         <label htmlFor="gmin">Green Min:</label>
-                        <input type="range" min='0' max='255' name="gmin" ref={greenMin}></input>
+                        <input className="controlRange" type="range" min='0' max='255' name="gmin" ref={greenMin}></input>
                         <label htmlFor="gmax">Green Max:</label>
-                        <input type="range" min='0' max='255' name="gmax" ref={greenMax}></input>
+                        <input className="controlRange" type="range" min='0' max='255' name="gmax" ref={greenMax}></input>
                         <br></br>
                         <label htmlFor="bmin">Blue Min:</label>
-                        <input type="range" min='0' max='255' name="bmin" ref={blueMin}></input>
+                        <input className="controlRange" type="range" min='0' max='255' name="bmin" ref={blueMin}></input>
                         <label htmlFor="bmax">Blue Max:</label>
-                        <input type="range" min='0' max='255' name="bmax" ref={blueMax}></input>
+                        <input className="controlRange" type="range" min='0' max='255' name="bmax" ref={blueMax}></input>
                     </div>
+                    <button onClick={takePhoto} className="takePhoto">Take Photo</button>
                 </div>
 
                 <canvas className="photo" ref={canvas}></canvas>
